@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:chatview/chatview.dart';
+import 'package:chatview2/chatview2.dart';
 import 'package:flutter/material.dart';
 
 class SendingMessageAnimatingWidget extends StatefulWidget {

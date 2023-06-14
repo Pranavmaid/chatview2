@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 import 'package:flutter/material.dart';
-import '../../chatview.dart';
+import '../../chatview2.dart';
 
 class ChatBubble {
   /// Used for giving color of chat bubble.

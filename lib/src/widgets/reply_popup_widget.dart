@@ -21,7 +21,7 @@
  */
 import 'package:flutter/material.dart';
 
-import 'package:chatview/src/utils/package_strings.dart';
+import 'package:chatview2/src/utils/package_strings.dart';
 
 import '../values/typedefs.dart';
 

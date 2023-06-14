@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:chatview/chatview.dart';
+import 'package:chatview2/chatview2.dart';
 
 /// This widget for alternative of excessive amount of passing arguments
 /// over widgets.

@@ -20,8 +20,8 @@
  * SOFTWARE.
  */
 import 'package:flutter/material.dart';
-import 'package:chatview/src/models/reaction_popup_configuration.dart';
-import 'package:chatview/src/utils/constants/constants.dart';
+import 'package:chatview2/src/models/reaction_popup_configuration.dart';
+import 'package:chatview2/src/utils/constants/constants.dart';
 
 import '../values/typedefs.dart';
 import 'emoji_picker_widget.dart';

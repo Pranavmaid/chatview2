@@ -1,4 +1,4 @@
-import 'package:chatview/src/values/typedefs.dart';
+import 'package:chatview2/src/values/typedefs.dart';
 import 'package:flutter/material.dart';
 
 class ChatViewStateConfiguration {

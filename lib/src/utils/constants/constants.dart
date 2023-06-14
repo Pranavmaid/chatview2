@@ -23,7 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-import '../../../chatview.dart';
+import '../../../chatview2.dart';
 import '../../widgets/chat_message_sending_to_sent_animation.dart';
 
 const String enUS = "en_US";

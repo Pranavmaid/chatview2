@@ -21,7 +21,7 @@
  */
 
 import 'package:flutter/cupertino.dart';
-import '../../chatview.dart';
+import '../../chatview2.dart';
 import '../utils/constants/constants.dart';
 
 class ReceiptsWidgetConfig {

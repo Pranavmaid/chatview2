@@ -1,4 +1,4 @@
-import 'package:chatview/chatview.dart';
+import 'package:chatview2/chatview2.dart';
 import 'package:example/data.dart';
 import 'package:example/models/theme.dart';
 import 'package:flutter/material.dart';

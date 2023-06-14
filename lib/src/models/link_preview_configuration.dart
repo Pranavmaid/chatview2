@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import 'package:chatview/src/values/typedefs.dart';
+import 'package:chatview2/src/values/typedefs.dart';
 import 'package:flutter/material.dart';
 
 class LinkPreviewConfiguration {

@@ -21,7 +21,7 @@
  */
 import 'package:flutter/material.dart';
 
-import '../../chatview.dart';
+import '../../chatview2.dart';
 
 class ProfileCircleConfiguration {
   /// Used to give padding to profile circle.

@@ -19,8 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import 'package:chatview/src/models/models.dart';
-import 'package:chatview/src/models/voice_message_configuration.dart';
+import 'package:chatview2/src/models/models.dart';
+import 'package:chatview2/src/models/voice_message_configuration.dart';
 import 'package:flutter/material.dart';
 
 class MessageConfiguration {

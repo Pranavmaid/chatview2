@@ -22,12 +22,12 @@
 import 'dart:async';
 import 'dart:io' if (kIsWeb) 'dart:html';
 
-import 'package:chatview/src/extensions/extensions.dart';
-import 'package:chatview/src/widgets/chat_groupedlist_widget.dart';
+import 'package:chatview2/src/extensions/extensions.dart';
+import 'package:chatview2/src/widgets/chat_groupedlist_widget.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 
-import '../../chatview.dart';
+import '../../chatview2.dart';
 import 'reaction_popup.dart';
 import 'reply_popup_widget.dart';
 

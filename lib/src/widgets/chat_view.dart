@@ -19,10 +19,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import 'package:chatview/chatview.dart';
-import 'package:chatview/src/widgets/chat_list_widget.dart';
-import 'package:chatview/src/widgets/chat_view_inherited_widget.dart';
-import 'package:chatview/src/widgets/chatview_state_widget.dart';
+import 'package:chatview2/chatview2.dart';
+import 'package:chatview2/src/widgets/chat_list_widget.dart';
+import 'package:chatview2/src/widgets/chat_view_inherited_widget.dart';
+import 'package:chatview2/src/widgets/chatview_state_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart';
 import '../values/custom_time_messages.dart';

@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import 'package:chatview/chatview.dart';
+import 'package:chatview2/chatview2.dart';
 import 'package:flutter/material.dart';
 
 typedef StringCallback = void Function(String);

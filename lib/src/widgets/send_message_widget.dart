@@ -23,10 +23,10 @@ import 'dart:io' if (kIsWeb) 'dart:html';
 import 'dart:ui';
 
 import 'package:audio_waveforms/audio_waveforms.dart';
-import 'package:chatview/chatview.dart';
-import 'package:chatview/src/extensions/extensions.dart';
-import 'package:chatview/src/utils/package_strings.dart';
-import 'package:chatview/src/widgets/chatui_textfield.dart';
+import 'package:chatview2/chatview2.dart';
+import 'package:chatview2/src/extensions/extensions.dart';
+import 'package:chatview2/src/utils/package_strings.dart';
+import 'package:chatview2/src/widgets/chatui_textfield.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 

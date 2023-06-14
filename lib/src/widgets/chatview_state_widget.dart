@@ -1,5 +1,5 @@
-import 'package:chatview/chatview.dart';
-import 'package:chatview/src/extensions/extensions.dart';
+import 'package:chatview2/chatview2.dart';
+import 'package:chatview2/src/extensions/extensions.dart';
 import 'package:flutter/material.dart';
 
 class ChatViewStateWidget extends StatelessWidget {

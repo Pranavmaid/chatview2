@@ -1,4 +1,4 @@
-import 'package:chatview/chatview.dart';
+import 'package:chatview2/chatview2.dart';
 
 class Data {
   static const profileImage =

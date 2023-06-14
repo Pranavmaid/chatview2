@@ -1,7 +1,7 @@
 ![Banner](https://raw.githubusercontent.com/SimformSolutionsPvtLtd/flutter_chat_ui/main/preview/banner.png)
 
 # ChatView
- [![chatview](https://img.shields.io/pub/v/chatview?label=chatview)](https://pub.dev/packages/chatview)
+ [![chatview2](https://img.shields.io/pub/v/chatview2?label=chatview2)](https://pub.dev/packages/chatview2)
 
 A Flutter package that allows you to integrate Chat View with highly customization options such as one on one
 chat, group chat, message reactions, reply messages, link preview and configurations for overall view.
@@ -11,7 +11,7 @@ visit [Chat View Example](https://chat-view-8f1b5.web.app/#/).
 
 ## Preview
 
-![The example app running in iOS](https://raw.githubusercontent.com/SimformSolutionsPvtLtd/flutter_chat_ui/main/preview/chatview.gif)
+![The example app running in iOS](https://raw.githubusercontent.com/SimformSolutionsPvtLtd/flutter_chat_ui/main/preview/chatview2.gif)
 
 ## Installing   
 
@@ -19,13 +19,13 @@ visit [Chat View Example](https://chat-view-8f1b5.web.app/#/).
 
 ```dart
 dependencies:
-  chatview: <latest-version>
+  chatview2: <latest-version>
 ```
-*Get the latest version in the 'Installing' tab on [pub.dev](https://pub.dev/packages/chatview)*
+*Get the latest version in the 'Installing' tab on [pub.dev](https://pub.dev/packages/chatview2)*
 
 2.  Import the package
 ```dart
-import 'package:chatview/chatview.dart';
+import 'package:chatview2/chatview2.dart';
 ```
 3. Adding a chat controller.
 ```dart
@@ -473,7 +473,7 @@ ChatView(
 
 ## How to use
 
-Check out [blog](https://medium.com/simform-engineering/chatview-a-cutting-edge-chat-ui-solution-7367b1f9d772) for better understanding and basic implementation. 
+Check out [blog](https://medium.com/simform-engineering/chatview2-a-cutting-edge-chat-ui-solution-7367b1f9d772) for better understanding and basic implementation. 
 
 Also, for whole example, check out the **example** app in the [example](https://github.com/SimformSolutionsPvtLtd/flutter_chatview/tree/main/example) directory or the 'Example' tab on pub.dartlang.org for a more complete example.
 

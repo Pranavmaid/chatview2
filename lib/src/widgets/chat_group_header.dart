@@ -20,8 +20,8 @@
  * SOFTWARE.
  */
 import 'package:flutter/material.dart';
-import 'package:chatview/src/models/models.dart';
-import 'package:chatview/src/extensions/extensions.dart';
+import 'package:chatview2/src/models/models.dart';
+import 'package:chatview2/src/extensions/extensions.dart';
 
 class ChatGroupHeader extends StatelessWidget {
   const ChatGroupHeader({

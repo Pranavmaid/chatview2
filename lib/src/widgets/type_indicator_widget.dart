@@ -22,9 +22,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-import 'package:chatview/src/widgets/profile_circle.dart';
+import 'package:chatview2/src/widgets/profile_circle.dart';
 
-import '../../chatview.dart';
+import '../../chatview2.dart';
 import '../utils/constants/constants.dart';
 
 class TypingIndicator extends StatefulWidget {
