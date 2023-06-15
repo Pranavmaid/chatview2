@@ -482,7 +482,7 @@ Also, for whole example, check out the **example** app in the [example](https://
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Pranavmaid"><img src="https://avatars.githubusercontent.com/u/64965878?s=100" width="100px;" alt=""/><br /><sub><b>VPranav Maid</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Pranavmaid"><img src="https://avatars.githubusercontent.com/u/64965878?v=4" width="100px;" alt=""/><br /><sub><b>Pranav Maid</b></sub></a></td>
   <tr>
     <td align="center"><a href="https://github.com/vatsaltanna"><img src="https://avatars.githubusercontent.com/u/25323183?s=100" width="100px;" alt=""/><br /><sub><b>Vatsal Tanna</b></sub></a></td>
     <td align="center"><a href="https://github.com/DhvanitVaghani"><img src="https://avatars.githubusercontent.com/u/64645989?v=4" width="100px;" alt=""/><br /><sub><b>Dhvanit Vaghani</b></sub></a></td>
