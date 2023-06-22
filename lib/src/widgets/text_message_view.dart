@@ -19,10 +19,12 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import 'package:chatview2/chatview2.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chatview2/src/extensions/extensions.dart';
 import 'package:chatview2/src/models/models.dart';
+import 'package:intl/intl.dart';
 
 import '../utils/constants/constants.dart';
 import 'link_preview.dart';
@@ -86,21 +88,89 @@ class TextMessageView extends StatelessWidget {
                   5, 0, 6, message.reaction.reactions.isNotEmpty ? 15 : 2),
           decoration: BoxDecoration(
             color: highlightMessage ? highlightColor : _color,
-            borderRadius: _borderRadius(textMessage),
+            borderRadius: BorderRadius.circular(10),
           ),
-          child: textMessage.isUrl
-              ? LinkPreview(
-                  linkPreviewConfig: _linkPreviewConfig,
-                  url: textMessage,
-                )
-              : Text(
-                  textMessage,
-                  style: _textStyle ??
-                      textTheme.bodyMedium!.copyWith(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                // crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  textMessage.isUrl
+                      ? Flexible(
+                          child: LinkPreview(
+                            linkPreviewConfig: _linkPreviewConfig,
+                            url: textMessage,
+                          ),
+                        )
+                      : Flexible(
+                          child: Text(
+                            textMessage,
+                            maxLines: null,
+                            textAlign: TextAlign.start,
+                            style: _textStyle ??
+                                textTheme.bodyMedium!.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                ),
+                          ),
+                        ),
+                  SizedBox(
+                    width: 70,
+                    height: textMessage.isUrl
+                        ? MediaQuery.of(context).size.height * 0.25
+                        : 30,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                                DateFormat().add_jm().format(message.createdAt),
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    color: _textStyle != null
+                                        ? _textStyle!.color ?? Colors.black
+                                        : Colors.white,
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w500)),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(2, 0, 0, 0),
+                              child: Icon(
+                                message.status == MessageStatus.read
+                                    ? Icons.done_all_rounded
+                                    : message.status == MessageStatus.delivered
+                                        ? Icons.done
+                                        : message.status ==
+                                                MessageStatus.pending
+                                            ? Icons.pending
+                                            : message.status ==
+                                                    MessageStatus.undelivered
+                                                ? Icons.error_outline
+                                                : Icons.error_outline,
+                                size: 16,
+                                color: message.status == MessageStatus.read
+                                    ? Colors.deepPurple
+                                    : message.status ==
+                                            MessageStatus.undelivered
+                                        ? Colors.amberAccent
+                                        : _textStyle != null
+                                            ? _textStyle!.color ?? Colors.black
+                                            : Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
         if (message.reaction.reactions.isNotEmpty)
           ReactionWidget(
