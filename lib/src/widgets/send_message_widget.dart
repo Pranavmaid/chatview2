@@ -22,7 +22,7 @@
 import 'dart:io' if (kIsWeb) 'dart:html';
 import 'dart:ui';
 
-import 'package:audio_waveforms/audio_waveforms.dart';
+// import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:chatview2/chatview2.dart';
 import 'package:chatview2/src/extensions/extensions.dart';
 import 'package:chatview2/src/utils/package_strings.dart';
@@ -175,8 +175,15 @@ class SendMessageWidgetState extends State<SendMessageWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text(
+                                          SelectableText(
                                             replyTitle,
+                                            cursorColor: Colors.red,
+                                            showCursor: true,
+                                            toolbarOptions: ToolbarOptions(
+                                                copy: true,
+                                                selectAll: true,
+                                                cut: false,
+                                                paste: false),
                                             style: TextStyle(
                                               color: widget.sendMessageConfig
                                                       ?.replyTitleColor ??
@@ -245,20 +252,20 @@ class SendMessageWidgetState extends State<SendMessageWidget> {
   Widget get _voiceReplyMessageView {
     return Row(
       children: [
-        Icon(
-          Icons.mic,
-          color: widget.sendMessageConfig?.micIconColor,
-        ),
-        const SizedBox(width: 4),
-        if (replyMessage.voiceMessageDuration != null)
-          Text(
-            replyMessage.voiceMessageDuration!.toHHMMSS(),
-            style: TextStyle(
-              fontSize: 12,
-              color:
-                  widget.sendMessageConfig?.replyMessageColor ?? Colors.black,
-            ),
-          ),
+        // Icon(
+        //   Icons.mic,
+        //   color: widget.sendMessageConfig?.micIconColor,
+        // ),
+        // const SizedBox(width: 4),
+        // if (replyMessage.voiceMessageDuration != null)
+        //   Text(
+        //     replyMessage.voiceMessageDuration!.toHHMMSS(),
+        //     style: TextStyle(
+        //       fontSize: 12,
+        //       color:
+        //           widget.sendMessageConfig?.replyMessageColor ?? Colors.black,
+        //     ),
+        //   ),
       ],
     );
   }
@@ -272,8 +279,12 @@ class SendMessageWidgetState extends State<SendMessageWidget> {
           color: widget.sendMessageConfig?.replyMessageColor ??
               Colors.grey.shade700,
         ),
-        Text(
+        SelectableText(
           PackageStrings.photo,
+          cursorColor: Colors.red,
+          showCursor: true,
+          toolbarOptions: ToolbarOptions(
+              copy: true, selectAll: true, cut: false, paste: false),
           style: TextStyle(
             color: widget.sendMessageConfig?.replyMessageColor ?? Colors.black,
           ),

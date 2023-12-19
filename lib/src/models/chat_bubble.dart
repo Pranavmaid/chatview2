@@ -48,6 +48,10 @@ class ChatBubble {
   /// at latest outgoing messsage.
   final ReceiptsWidgetConfig? receiptsWidgetConfig;
 
+  final Icon? downloadIcon;
+
+  final Function(Message message)? onDownloadTap;
+
   /// Callback when a message has been displayed for the first
   /// time only
   final Function(Message message)? onMessageRead;
@@ -62,5 +66,7 @@ class ChatBubble {
     this.senderNameTextStyle,
     this.receiptsWidgetConfig,
     this.onMessageRead,
+    this.downloadIcon,
+    this.onDownloadTap,
   });
 }

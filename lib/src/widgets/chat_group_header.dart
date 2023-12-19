@@ -41,8 +41,12 @@ class ChatGroupHeader extends StatelessWidget {
     return Padding(
       padding: groupSeparatorConfig?.padding ??
           const EdgeInsets.symmetric(vertical: 12),
-      child: Text(
+      child: SelectableText(
         day.getDay,
+        cursorColor: Colors.red,
+        showCursor: true,
+        toolbarOptions: ToolbarOptions(
+            copy: true, selectAll: true, cut: false, paste: false),
         textAlign: TextAlign.center,
         style: groupSeparatorConfig?.textStyle ?? const TextStyle(fontSize: 17),
       ),

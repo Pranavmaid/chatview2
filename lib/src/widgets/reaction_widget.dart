@@ -102,8 +102,12 @@ class _ReactionWidgetState extends State<ReactionWidget> {
             ),
             child: Row(
               children: [
-                Text(
+                SelectableText(
                   reactionsSet.join(' '),
+                  cursorColor: Colors.red,
+                  showCursor: true,
+                  toolbarOptions: ToolbarOptions(
+                      copy: true, selectAll: true, cut: false, paste: false),
                   style: TextStyle(
                     fontSize: messageReactionConfig?.reactionSize ?? 13,
                   ),
@@ -128,8 +132,15 @@ class _ReactionWidgetState extends State<ReactionWidget> {
                       !(reactionsSet.length > 1))
                     Padding(
                       padding: const EdgeInsets.only(left: 2),
-                      child: Text(
+                      child: SelectableText(
                         '+${widget.reaction.reactedUserIds.length}',
+                        cursorColor: Colors.red,
+                        showCursor: true,
+                        toolbarOptions: ToolbarOptions(
+                            copy: true,
+                            selectAll: true,
+                            cut: false,
+                            paste: false),
                         style:
                             messageReactionConfig?.reactedUserCountTextStyle ??
                                 _reactionTextStyle,
@@ -138,8 +149,15 @@ class _ReactionWidgetState extends State<ReactionWidget> {
                   if (reactionsSet.length > 1)
                     Padding(
                       padding: const EdgeInsets.only(left: 2),
-                      child: Text(
+                      child: SelectableText(
                         widget.reaction.reactedUserIds.length.toString(),
+                        cursorColor: Colors.red,
+                        showCursor: true,
+                        toolbarOptions: ToolbarOptions(
+                            copy: true,
+                            selectAll: true,
+                            cut: false,
+                            paste: false),
                         style: messageReactionConfig?.reactionCountTextStyle ??
                             _reactionTextStyle,
                       ),

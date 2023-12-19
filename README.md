@@ -11,7 +11,7 @@ visit [Chat View Example](https://chat-view-8f1b5.web.app/#/).
 
 ## Preview
 
-![The example app running in iOS](https://raw.githubusercontent.com/SimformSolutionsPvtLtd/flutter_chat_ui/main/preview/chatview2.gif)
+![The example app running in iOS](https://raw.githubusercontent.com/SimformSolutionsPvtLtd/flutter_chat_ui/main/preview/chatview.gif)
 
 ## Installing   
 
@@ -481,8 +481,6 @@ Also, for whole example, check out the **example** app in the [example](https://
 ## Main Contributors
 
 <table>
-  <tr>
-    <td align="center"><a href="https://github.com/Pranavmaid"><img src="https://avatars.githubusercontent.com/u/64965878?v=4" width="100px;" alt=""/><br /><sub><b>Pranav Maid</b></sub></a></td>
   <tr>
     <td align="center"><a href="https://github.com/Pranavmaid"><img src="https://avatars.githubusercontent.com/u/64965878?v=4" width="100px;" alt=""/><br /><sub><b>Pranav Maid</b></sub></a></td>
     <td align="center"><a href="https://github.com/vatsaltanna"><img src="https://avatars.githubusercontent.com/u/25323183?s=100" width="100px;" alt=""/><br /><sub><b>Vatsal Tanna</b></sub></a></td>

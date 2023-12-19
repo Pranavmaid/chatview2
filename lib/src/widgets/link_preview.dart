@@ -76,6 +76,7 @@ class LinkPreview extends StatelessWidget {
                         ),
                       ),
                     ),
+                    errorWidget: SizedBox.shrink(),
                     backgroundColor: linkPreviewConfig?.backgroundColor ??
                         Colors.grey.shade200,
                     borderRadius: linkPreviewConfig?.borderRadius,
@@ -87,8 +88,12 @@ class LinkPreview extends StatelessWidget {
           const SizedBox(height: verticalPadding),
           InkWell(
             onTap: _onLinkTap,
-            child: Text(
+            child: SelectableText(
               url,
+              cursorColor: Colors.red,
+              showCursor: true,
+              toolbarOptions: ToolbarOptions(
+                  copy: true, selectAll: true, cut: false, paste: false),
               style: linkPreviewConfig?.linkStyle ??
                   const TextStyle(
                     color: Colors.white,

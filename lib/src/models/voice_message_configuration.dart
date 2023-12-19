@@ -1,10 +1,10 @@
-import 'package:audio_waveforms/audio_waveforms.dart';
+// import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:flutter/material.dart';
 
 /// A configuration model class for voice message bubble.
 class VoiceMessageConfiguration {
   const VoiceMessageConfiguration({
-    this.playerWaveStyle,
+    // this.playerWaveStyle,
     this.padding = const EdgeInsets.symmetric(horizontal: 8),
     this.margin,
     this.decoration,
@@ -18,7 +18,7 @@ class VoiceMessageConfiguration {
   });
 
   /// Applies style to waveform.
-  final PlayerWaveStyle? playerWaveStyle;
+  // final PlayerWaveStyle? playerWaveStyle;
 
   /// Applies padding to message bubble.
   final EdgeInsets padding;

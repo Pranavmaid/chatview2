@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import 'package:audio_waveforms/audio_waveforms.dart';
+// import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:chatview2/src/values/enumaration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -164,7 +164,7 @@ class TextFieldConfiguration {
 /// Styling configuration for recorder widget.
 class VoiceRecordingConfiguration {
   const VoiceRecordingConfiguration({
-    this.waveStyle,
+    // this.waveStyle,
     this.padding,
     this.margin,
     this.decoration,
@@ -175,7 +175,7 @@ class VoiceRecordingConfiguration {
   });
 
   /// Applies styles to waveform.
-  final WaveStyle? waveStyle;
+  // final WaveStyle? waveStyle;
 
   /// Applies padding around waveform widget.
   final EdgeInsets? padding;

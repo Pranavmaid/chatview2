@@ -31,7 +31,13 @@ class Message {
   final GlobalKey key;
 
   /// Provides actual message it will be text or image/audio file path.
+  final String title;
+
+  /// Provides actual message it will be text or image/audio file path.
   final String message;
+
+  /// Provides actual message it will be text or image/audio file path.
+  final String fileName;
 
   /// Provides message created date time.
   final DateTime createdAt;
@@ -56,7 +62,9 @@ class Message {
 
   Message({
     this.id = '',
+    required this.title,
     required this.message,
+    this.fileName = '',
     required this.createdAt,
     required this.sendBy,
     this.replyMessage = const ReplyMessage(),
@@ -92,6 +100,8 @@ class Message {
 
   factory Message.fromJson(Map<String, dynamic> json) => Message(
       id: json["id"],
+      title: json["title"],
+      fileName: json["fileName"],
       message: json["message"],
       createdAt: json["createdAt"],
       sendBy: json["sendBy"],
@@ -103,7 +113,9 @@ class Message {
 
   Map<String, dynamic> toJson() => {
         'id': id,
+        'title': title,
         'message': message,
+        'fileName': fileName,
         'createdAt': createdAt,
         'sendBy': sendBy,
         'reply_message': replyMessage.toJson(),

@@ -119,8 +119,15 @@ class ChatViewAppBar extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      SelectableText(
                         chatTitle,
+                        cursorColor: Colors.red,
+                        showCursor: true,
+                        toolbarOptions: ToolbarOptions(
+                            copy: true,
+                            selectAll: true,
+                            cut: false,
+                            paste: false),
                         style: chatTitleTextStyle ??
                             const TextStyle(
                               fontSize: 18,
@@ -129,8 +136,15 @@ class ChatViewAppBar extends StatelessWidget {
                             ),
                       ),
                       if (userStatus != null)
-                        Text(
+                        SelectableText(
                           userStatus!,
+                          cursorColor: Colors.red,
+                          showCursor: true,
+                          toolbarOptions: ToolbarOptions(
+                              copy: true,
+                              selectAll: true,
+                              cut: false,
+                              paste: false),
                           style: userStatusTextStyle,
                         ),
                     ],

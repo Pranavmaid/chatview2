@@ -29,17 +29,25 @@ class ChatViewStateWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              SelectableText(
                 (chatViewStateWidgetConfig?.title
                     .getChatViewStateTitle(chatViewState))!,
+                cursorColor: Colors.red,
+                showCursor: true,
+                toolbarOptions: ToolbarOptions(
+                    copy: true, selectAll: true, cut: false, paste: false),
                 style: chatViewStateWidgetConfig?.titleTextStyle ??
                     const TextStyle(
                       fontSize: 22,
                     ),
               ),
               if (chatViewStateWidgetConfig?.subTitle != null)
-                Text(
+                SelectableText(
                   (chatViewStateWidgetConfig?.subTitle)!,
+                  cursorColor: Colors.red,
+                  showCursor: true,
+                  toolbarOptions: ToolbarOptions(
+                      copy: true, selectAll: true, cut: false, paste: false),
                   style: chatViewStateWidgetConfig?.subTitleTextStyle,
                 ),
               if (chatViewState.isLoading)
@@ -62,7 +70,13 @@ class ChatViewStateWidget extends StatelessWidget {
                         chatViewStateWidgetConfig?.reloadButtonColor ??
                             const Color(0xffEE5366),
                   ),
-                  child: const Text('Reload'),
+                  child: const SelectableText(
+                    'Reload',
+                    cursorColor: Colors.red,
+                    showCursor: true,
+                    toolbarOptions: ToolbarOptions(
+                        copy: true, selectAll: true, cut: false, paste: false),
+                  ),
                 )
               ]
             ],

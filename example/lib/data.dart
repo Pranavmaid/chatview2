@@ -6,13 +6,15 @@ class Data {
   static final messageList = [
     Message(
       id: '1',
+      title: "1",
       message: "Hi!",
       createdAt: DateTime.now().subtract(const Duration(days: 1)),
       sendBy: '1', // userId of who sends the message
-      status: MessageStatus.read,
+      status: MessageStatus.delivered,
     ),
     Message(
       id: '2',
+      title: "1",
       message: "Hi!",
       createdAt: DateTime.now(),
       sendBy: '2',
@@ -20,6 +22,7 @@ class Data {
     ),
     Message(
       id: '3',
+      title: "1",
       message: "We can meet?I am free",
       createdAt: DateTime.now(),
       sendBy: '1',
@@ -27,6 +30,7 @@ class Data {
     ),
     Message(
       id: '4',
+      title: "1",
       message: "Can you write the time and place of the meeting?",
       createdAt: DateTime.now(),
       sendBy: '1',
@@ -34,6 +38,7 @@ class Data {
     ),
     Message(
       id: '5',
+      title: "1",
       message: "That's fine",
       createdAt: DateTime.now(),
       sendBy: '2',
@@ -42,6 +47,7 @@ class Data {
     ),
     Message(
       id: '6',
+      title: "1",
       message: "When to go ?",
       createdAt: DateTime.now(),
       sendBy: '3',
@@ -49,6 +55,7 @@ class Data {
     ),
     Message(
       id: '7',
+      title: "1",
       message: "I guess Simform will reply",
       createdAt: DateTime.now(),
       sendBy: '4',
@@ -56,7 +63,8 @@ class Data {
     ),
     Message(
       id: '8',
-      message: "https://bit.ly/3JHS2Wl",
+      title: "1",
+      message: "https://goo.gl/maps/Vjqt8BtsCVkfH7m69",
       createdAt: DateTime.now(),
       sendBy: '2',
       reaction: Reaction(
@@ -73,6 +81,7 @@ class Data {
     ),
     Message(
       id: '9',
+      title: "1",
       message: "Done",
       createdAt: DateTime.now(),
       sendBy: '1',
@@ -88,6 +97,7 @@ class Data {
     ),
     Message(
       id: '10',
+      title: "1",
       message: "Thank you!!",
       status: MessageStatus.read,
       createdAt: DateTime.now(),
@@ -99,6 +109,7 @@ class Data {
     ),
     Message(
       id: '11',
+      title: "1",
       message: "https://miro.medium.com/max/1000/0*s7of7kWnf9fDg4XM.jpeg",
       createdAt: DateTime.now(),
       messageType: MessageType.image,
@@ -107,7 +118,18 @@ class Data {
       status: MessageStatus.read,
     ),
     Message(
+      id: '31',
+      title: "1",
+      fileName: "1.txt",
+      message: "https://miro.medium.com/max/1000/0*s7of7kWnf9fDg4XM.jpeg",
+      createdAt: DateTime.now(),
+      messageType: MessageType.file,
+      sendBy: '1',
+      status: MessageStatus.read,
+    ),
+    Message(
       id: '12',
+      title: "1",
       message: "🤩🤩",
       createdAt: DateTime.now(),
       sendBy: '2',

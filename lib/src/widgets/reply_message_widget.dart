@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import 'package:audio_waveforms/audio_waveforms.dart';
+// import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chatview2/src/extensions/extensions.dart';
@@ -73,8 +73,12 @@ class ReplyMessageWidget extends StatelessWidget {
           crossAxisAlignment:
               replyBySender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
-            Text(
+            SelectableText(
               "${PackageStrings.repliedBy} $replyBy",
+              cursorColor: Colors.red,
+              showCursor: true,
+              toolbarOptions: ToolbarOptions(
+                  copy: true, selectAll: true, cut: false, paste: false),
               style: repliedMessageConfig?.replyTitleTextStyle ??
                   textTheme.bodyMedium!
                       .copyWith(fontSize: 14, letterSpacing: 0.3),
@@ -130,35 +134,44 @@ class ReplyMessageWidget extends StatelessWidget {
                                 color: repliedMessageConfig?.backgroundColor ??
                                     Colors.grey.shade500,
                               ),
-                              child: message.replyMessage.messageType.isVoice
-                                  ? Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(
-                                          Icons.mic,
-                                          color: repliedMessageConfig
-                                                  ?.micIconColor ??
-                                              Colors.white,
-                                        ),
-                                        const SizedBox(width: 2),
-                                        if (message.replyMessage
-                                                .voiceMessageDuration !=
-                                            null)
-                                          Text(
-                                            message.replyMessage
-                                                .voiceMessageDuration!
-                                                .toHHMMSS(),
-                                            style:
-                                                repliedMessageConfig?.textStyle,
-                                          ),
-                                      ],
-                                    )
-                                  : Text(
-                                      replyMessage,
-                                      style: repliedMessageConfig?.textStyle ??
-                                          textTheme.bodyMedium!
-                                              .copyWith(color: Colors.black),
-                                    ),
+                              child:
+                                  // message.replyMessage.messageType.isVoice
+                                  //     ? Row(
+                                  //         mainAxisSize: MainAxisSize.min,
+                                  //         children: [
+                                  //           Icon(
+                                  //             Icons.mic,
+                                  //             color: repliedMessageConfig
+                                  //                     ?.micIconColor ??
+                                  //                 Colors.white,
+                                  //           ),
+                                  //           const SizedBox(width: 2),
+                                  //           // if (message.replyMessage
+                                  //           //         .voiceMessageDuration !=
+                                  //           //     null)
+                                  //           //   Text(
+                                  //           //     message.replyMessage
+                                  //           //         .voiceMessageDuration!
+                                  //           //         .toHHMMSS(),
+                                  //           //     style:
+                                  //           //         repliedMessageConfig?.textStyle,
+                                  //           //   ),
+                                  //         ],
+                                  //       )
+                                  //     :
+                                  SelectableText(
+                                replyMessage,
+                                cursorColor: Colors.red,
+                                showCursor: true,
+                                toolbarOptions: ToolbarOptions(
+                                    copy: true,
+                                    selectAll: true,
+                                    cut: false,
+                                    paste: false),
+                                style: repliedMessageConfig?.textStyle ??
+                                    textTheme.bodyMedium!
+                                        .copyWith(color: Colors.black),
+                              ),
                             ),
                     ),
                   ),
