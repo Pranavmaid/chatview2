@@ -1,6 +1,6 @@
 name: chatview2
 description: A Flutter package that allows you to integrate Chat View with highly customization options.
-version: 0.0.4
+version: 0.1.4
 issue_tracker: https://github.com/Pranavmaid/chatview2/issues
 repository: https://github.com/Pranavmaid/chatview2
 
@@ -19,18 +19,18 @@ dependencies:
   flutter:
     sdk: flutter
   grouped_list: ^5.1.2
-  intl: ^0.18.0
-  flutter_linkify: ^5.0.2
+  intl:
+  flutter_linkify: ^6.0.0
   url_launcher: ^6.1.7
   emoji_picker_flutter: ^1.6.0
-  http: ^0.13.5
-  html: ^0.15.1
+  html:
+  http:
   any_link_preview: ^3.0.0
   progress_indicators: ^1.0.0
-  image_picker: ^0.8.6
-  audio_waveforms: ^1.0.1
-  # For formatting time locale in message receipts
+  image_picker:
+  # audio_waveforms: ^1.0.1
   timeago: ^3.4.0
+  file_picker: ^5.3.2
 
 dev_dependencies:
   flutter_test:

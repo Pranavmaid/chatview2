@@ -75,23 +75,35 @@ class ReplyPopupWidget extends StatelessWidget {
         children: [
           InkWell(
             onTap: onReplyTap,
-            child: Text(
+            child: SelectableText(
               PackageStrings.reply,
+              cursorColor: Colors.red,
+              showCursor: true,
+              toolbarOptions: ToolbarOptions(
+                  copy: true, selectAll: true, cut: false, paste: false),
               style: textStyle,
             ),
           ),
           if (sendByCurrentUser)
             InkWell(
               onTap: onUnsendTap,
-              child: Text(
+              child: SelectableText(
                 PackageStrings.unsend,
+                cursorColor: Colors.red,
+                showCursor: true,
+                toolbarOptions: ToolbarOptions(
+                    copy: true, selectAll: true, cut: false, paste: false),
                 style: textStyle,
               ),
             ),
           InkWell(
             onTap: onMoreTap,
-            child: Text(
+            child: SelectableText(
               PackageStrings.more,
+              cursorColor: Colors.red,
+              showCursor: true,
+              toolbarOptions: ToolbarOptions(
+                  copy: true, selectAll: true, cut: false, paste: false),
               style: textStyle,
             ),
           ),

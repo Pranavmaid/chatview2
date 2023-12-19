@@ -36,6 +36,8 @@ class ImageMessageView extends StatelessWidget {
     required this.isMessageBySender,
     this.imageMessageConfig,
     this.messageReactionConfig,
+    this.inComingChatBubbleConfig,
+    this.outgoingChatBubbleConfig,
     this.highlightImage = false,
     this.highlightScale = 1.2,
   }) : super(key: key);
@@ -48,6 +50,12 @@ class ImageMessageView extends StatelessWidget {
 
   /// Provides configuration for image message appearance.
   final ImageMessageConfiguration? imageMessageConfig;
+
+  /// Provides configuration of chat bubble appearance from other user of chat.
+  final ChatBubble? inComingChatBubbleConfig;
+
+  /// Provides configuration of chat bubble appearance from current user of chat.
+  final ChatBubble? outgoingChatBubbleConfig;
 
   /// Provides configuration of reaction appearance in chat bubble.
   final MessageReactionConfiguration? messageReactionConfig;
@@ -64,6 +72,10 @@ class ImageMessageView extends StatelessWidget {
         shareIconConfig: imageMessageConfig?.shareIconConfig,
         imageUrl: imageUrl,
       );
+
+  Function(Message)? get _onDownloadTap => isMessageBySender
+      ? outgoingChatBubbleConfig?.onDownloadTap
+      : inComingChatBubbleConfig?.onDownloadTap;
 
   @override
   Widget build(BuildContext context) {
@@ -95,40 +107,45 @@ class ImageMessageView extends StatelessWidget {
                       ),
                   height: imageMessageConfig?.height ?? 200,
                   width: imageMessageConfig?.width ?? 150,
-                  child: ClipRRect(
-                    borderRadius: imageMessageConfig?.borderRadius ??
-                        BorderRadius.circular(14),
-                    child: (() {
-                      if (imageUrl.isUrl) {
-                        return Image.network(
-                          imageUrl,
-                          fit: BoxFit.fitHeight,
-                          loadingBuilder: (context, child, loadingProgress) {
-                            if (loadingProgress == null) return child;
-                            return Center(
-                              child: CircularProgressIndicator(
-                                value: loadingProgress.expectedTotalBytes !=
-                                        null
-                                    ? loadingProgress.cumulativeBytesLoaded /
-                                        loadingProgress.expectedTotalBytes!
-                                    : null,
-                              ),
-                            );
-                          },
-                        );
-                      } else if (imageUrl.fromMemory) {
-                        return Image.memory(
-                          base64Decode(imageUrl
-                              .substring(imageUrl.indexOf('base64') + 7)),
-                          fit: BoxFit.fill,
-                        );
-                      } else {
-                        return Image.file(
-                          File(imageUrl),
-                          fit: BoxFit.fill,
-                        );
-                      }
-                    }()),
+                  child: InkWell(
+                    onTap: () {
+                      _onDownloadTap!(message) ?? () {};
+                    },
+                    child: ClipRRect(
+                      borderRadius: imageMessageConfig?.borderRadius ??
+                          BorderRadius.circular(14),
+                      child: (() {
+                        if (imageUrl.isUrl) {
+                          return Image.network(
+                            imageUrl,
+                            fit: BoxFit.fill,
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  value: loadingProgress.expectedTotalBytes !=
+                                          null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                ),
+                              );
+                            },
+                          );
+                        } else if (imageUrl.fromMemory) {
+                          return Image.memory(
+                            base64Decode(imageUrl
+                                .substring(imageUrl.indexOf('base64') + 7)),
+                            fit: BoxFit.fill,
+                          );
+                        } else {
+                          return Image.file(
+                            File(imageUrl),
+                            fit: BoxFit.fill,
+                          );
+                        }
+                      }()),
+                    ),
                   ),
                 ),
               ),

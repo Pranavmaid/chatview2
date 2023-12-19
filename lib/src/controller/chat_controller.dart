@@ -98,6 +98,7 @@ class ChatController {
     }
     initialMessageList[indexOfMessage] = Message(
       id: messageId,
+      title: message.title,
       message: message.message,
       createdAt: message.createdAt,
       sendBy: message.sendBy,

@@ -22,6 +22,7 @@
 
 // Different types Message of ChatView
 enum MessageType {
+  file,
   image,
   text,
 
@@ -36,7 +37,7 @@ enum TypeWriterStatus { typing, typed }
 
 /// [MessageStatus] defines the current state of the message
 /// if you are sender sending a message then, the
-enum MessageStatus { read, delivered, undelivered, pending }
+enum MessageStatus { sent, read, delivered, undelivered, pending }
 
 /// Types of states
 enum ChatViewState { hasMessages, noData, loading, error }

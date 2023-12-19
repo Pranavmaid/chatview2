@@ -21,6 +21,7 @@
  */
 import 'package:chatview2/chatview2.dart';
 import 'package:chatview2/src/widgets/chat_view_inherited_widget.dart';
+import 'package:chatview2/src/widgets/file_message_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:chatview2/src/extensions/extensions.dart';
@@ -183,8 +184,15 @@ class _MessageViewState extends State<MessageView>
                           scale: widget.shouldHighlight
                               ? widget.highlightScale
                               : 1.0,
-                          child: Text(
+                          child: SelectableText(
                             message,
+                            cursorColor: Colors.red,
+                            showCursor: true,
+                            toolbarOptions: ToolbarOptions(
+                                copy: true,
+                                selectAll: true,
+                                cut: false,
+                                paste: false),
                             style: emojiMessageConfiguration?.textStyle ??
                                 const TextStyle(fontSize: 30),
                           ),
@@ -202,11 +210,24 @@ class _MessageViewState extends State<MessageView>
                 } else if (widget.message.messageType.isImage) {
                   return ImageMessageView(
                     message: widget.message,
+                    inComingChatBubbleConfig: widget.inComingChatBubbleConfig,
+                    outgoingChatBubbleConfig: widget.outgoingChatBubbleConfig,
                     isMessageBySender: widget.isMessageBySender,
                     imageMessageConfig: messageConfig?.imageMessageConfig,
                     messageReactionConfig: messageConfig?.messageReactionConfig,
                     highlightImage: widget.shouldHighlight,
                     highlightScale: widget.highlightScale,
+                  );
+                } else if (widget.message.messageType.isFile) {
+                  return FileMessageView(
+                    inComingChatBubbleConfig: widget.inComingChatBubbleConfig,
+                    outgoingChatBubbleConfig: widget.outgoingChatBubbleConfig,
+                    isMessageBySender: widget.isMessageBySender,
+                    message: widget.message,
+                    chatBubbleMaxWidth: widget.chatBubbleMaxWidth,
+                    messageReactionConfig: messageConfig?.messageReactionConfig,
+                    highlightColor: widget.highlightColor,
+                    highlightMessage: widget.shouldHighlight,
                   );
                 } else if (widget.message.messageType.isText) {
                   return TextMessageView(

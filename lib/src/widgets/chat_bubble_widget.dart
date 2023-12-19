@@ -197,7 +197,8 @@ class _ChatBubbleWidgetState extends State<ChatBubbleWidget> {
                     replyIconColor: widget.swipeToReplyConfig?.replyIconColor,
                     swipeToReplyAnimationDuration:
                         widget.swipeToReplyConfig?.animationDuration,
-                    child: _messagesWidgetColumn(messagedUser),
+                    child: _messagesWidgetColumn(
+                        messagedUser, widget.message.title),
                   )
                 : SwipeToReply(
                     onRightSwipe:
@@ -219,7 +220,8 @@ class _ChatBubbleWidgetState extends State<ChatBubbleWidget> {
                     replyIconColor: widget.swipeToReplyConfig?.replyIconColor,
                     swipeToReplyAnimationDuration:
                         widget.swipeToReplyConfig?.animationDuration,
-                    child: _messagesWidgetColumn(messagedUser),
+                    child: _messagesWidgetColumn(
+                        messagedUser, widget.message.title),
                   ),
           ),
           if (isMessageBySender) ...[getReciept()],
@@ -292,7 +294,7 @@ class _ChatBubbleWidgetState extends State<ChatBubbleWidget> {
     }
   }
 
-  Widget _messagesWidgetColumn(ChatUser? messagedUser) {
+  Widget _messagesWidgetColumn(ChatUser? messagedUser, String? title) {
     return Column(
       crossAxisAlignment:
           isMessageBySender ? CrossAxisAlignment.end : CrossAxisAlignment.start,
@@ -302,8 +304,27 @@ class _ChatBubbleWidgetState extends State<ChatBubbleWidget> {
             padding:
                 widget.chatBubbleConfig?.inComingChatBubbleConfig?.padding ??
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-            child: Text(
+            child: SelectableText(
               messagedUser?.name ?? '',
+              cursorColor: Colors.red,
+              showCursor: true,
+              toolbarOptions: ToolbarOptions(
+                  copy: true, selectAll: true, cut: false, paste: false),
+              style: widget.chatBubbleConfig?.inComingChatBubbleConfig
+                  ?.senderNameTextStyle,
+            ),
+          ),
+        if ((chatController?.chatUsers.length ?? 0) > 1 && isMessageBySender)
+          Padding(
+            padding:
+                widget.chatBubbleConfig?.inComingChatBubbleConfig?.padding ??
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            child: SelectableText(
+              title ?? '',
+              cursorColor: Colors.red,
+              showCursor: true,
+              toolbarOptions: ToolbarOptions(
+                  copy: true, selectAll: true, cut: false, paste: false),
               style: widget.chatBubbleConfig?.inComingChatBubbleConfig
                   ?.senderNameTextStyle,
             ),

@@ -68,8 +68,12 @@ class MessageTimeWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 4),
-            Text(
+            SelectableText(
               messageTime.getTimeFromDateTime,
+              cursorColor: Colors.red,
+              showCursor: true,
+              toolbarOptions: ToolbarOptions(
+                  copy: true, selectAll: true, cut: false, paste: false),
               style: messageTimeTextStyle ?? const TextStyle(fontSize: 12),
             ),
           ],

@@ -162,11 +162,11 @@ class _ChatScreenState extends State<ChatScreen> {
           voiceRecordingConfiguration: VoiceRecordingConfiguration(
             backgroundColor: theme.waveformBackgroundColor,
             recorderIconColor: theme.recordIconColor,
-            waveStyle: WaveStyle(
-              showMiddleLine: false,
-              waveColor: theme.waveColor ?? Colors.white,
-              extendWaveform: true,
-            ),
+            // waveStyle: WaveStyle(
+            //   showMiddleLine: false,
+            //   waveColor: theme.waveColor ?? Colors.white,
+            //   extendWaveform: true,
+            // ),
           ),
         ),
         chatBubbleConfig: ChatBubbleConfiguration(
@@ -179,6 +179,9 @@ class _ChatScreenState extends State<ChatScreen> {
             receiptsWidgetConfig:
                 const ReceiptsWidgetConfig(showReceiptsIn: ShowReceiptsIn.all),
             color: theme.outgoingChatBubbleColor,
+            onDownloadTap: (msg) {
+              debugPrint(msg.fileName);
+            },
           ),
           inComingChatBubbleConfig: ChatBubble(
             linkPreviewConfig: LinkPreviewConfiguration(
@@ -194,6 +197,9 @@ class _ChatScreenState extends State<ChatScreen> {
             onMessageRead: (message) {
               /// send your message reciepts to the other client
               debugPrint('Message Read');
+            },
+            onDownloadTap: (msg) {
+              debugPrint(msg.fileName);
             },
             senderNameTextStyle:
                 TextStyle(color: theme.inComingChatBubbleTextColor),
@@ -280,6 +286,7 @@ class _ChatScreenState extends State<ChatScreen> {
     _chatController.addMessage(
       Message(
         id: id.toString(),
+        title: "1",
         createdAt: DateTime.now(),
         message: message,
         sendBy: currentUser.id,

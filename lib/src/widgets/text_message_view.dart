@@ -90,42 +90,52 @@ class TextMessageView extends StatelessWidget {
             color: highlightMessage ? highlightColor : _color,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Column(
+          child: Stack(
             children: [
-              Row(
+              Column(
                 mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.end,
-                // crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  textMessage.isUrl
-                      ? Flexible(
-                          child: LinkPreview(
-                            linkPreviewConfig: _linkPreviewConfig,
-                            url: textMessage,
-                          ),
-                        )
-                      : Flexible(
-                          child: Text(
-                            textMessage,
-                            maxLines: null,
-                            textAlign: TextAlign.start,
-                            style: _textStyle ??
-                                textTheme.bodyMedium!.copyWith(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                          ),
-                        ),
-                  SizedBox(
-                    width: 70,
-                    height: textMessage.isUrl
-                        ? MediaQuery.of(context).size.height * 0.25
-                        : 30,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Row(
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 0, 70, 5),
+                      child: textMessage.isUrl
+                          ? LinkPreview(
+                              linkPreviewConfig: _linkPreviewConfig,
+                              url: textMessage,
+                            )
+                          : SelectableText(
+                              textMessage,
+                              cursorColor: Colors.red,
+                              showCursor: true,
+                              toolbarOptions: ToolbarOptions(
+                                  copy: true,
+                                  selectAll: true,
+                                  cut: false,
+                                  paste: false),
+                              maxLines: null,
+                              textAlign: TextAlign.start,
+                              style: _textStyle ??
+                                  textTheme.bodyMedium!.copyWith(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                            ),
+                    ),
+                  ),
+                ],
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: SizedBox(
+                  width: 70,
+                  height: 30,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Flexible(
+                        child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
@@ -140,20 +150,24 @@ class TextMessageView extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.fromLTRB(2, 0, 0, 0),
                               child: Icon(
-                                message.status == MessageStatus.read
-                                    ? Icons.done_all_rounded
-                                    : message.status == MessageStatus.delivered
-                                        ? Icons.done
+                                message.status == MessageStatus.sent
+                                    ? Icons.done
+                                    : message.status == MessageStatus.read
+                                        ? Icons.done_all_rounded
                                         : message.status ==
-                                                MessageStatus.pending
-                                            ? Icons.pending
+                                                MessageStatus.delivered
+                                            ? Icons.done_all_rounded
                                             : message.status ==
-                                                    MessageStatus.undelivered
-                                                ? Icons.error_outline
-                                                : Icons.error_outline,
+                                                    MessageStatus.pending
+                                                ? Icons.pending
+                                                : message.status ==
+                                                        MessageStatus
+                                                            .undelivered
+                                                    ? Icons.error_outline
+                                                    : Icons.error_outline,
                                 size: 16,
                                 color: message.status == MessageStatus.read
-                                    ? Colors.deepPurple
+                                    ? Colors.lightBlueAccent
                                     : message.status ==
                                             MessageStatus.undelivered
                                         ? Colors.amberAccent
@@ -164,11 +178,11 @@ class TextMessageView extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
